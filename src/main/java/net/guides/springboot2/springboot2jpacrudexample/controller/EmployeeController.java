@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.guides.springboot2.springboot2jpacrudexample.exception.ResourceNotFoundException;
 import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
+import net.guides.springboot2.springboot2jpacrudexample.model.Plane;
 import net.guides.springboot2.springboot2jpacrudexample.repository.EmployeeRepository;
+import net.guides.springboot2.springboot2jpacrudexample.repository.PlaneRepository;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -69,4 +71,5 @@ public class EmployeeController {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+	
 }
