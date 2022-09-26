@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.guides.springboot2.springboot2jpacrudexample.model.Flight;
 import net.guides.springboot2.springboot2jpacrudexample.model.Plane;
-import net.guides.springboot2.springboot2jpacrudexample.repository.PlaneRepository;
+import net.guides.springboot2.springboot2jpacrudexample.repository.FlightRepository;
 
 @RestController
-@RequestMapping("/api/planes")
-public class PlaneController {
+@RequestMapping("/api/flights")
+public class FlightController {
 	@Autowired
-	private PlaneRepository planeRepository;
+	private FlightRepository flightRepository;
 	@GetMapping("/all")
-	public List<Plane> getAllPlant() {
-		return planeRepository.findAll();
+	public List<Flight> getAllPlant() {
+		return flightRepository.findAll();
 	}
-	@GetMapping("/datlat")
-	public List<Plane> getPlanesToDalat() {
-		return planeRepository.findAll();
+	@GetMapping("/dalat")
+	public List<Flight> getPlanesToDalat() {
+		return flightRepository.findFlightGoToArrivals("DAD");
 	}
-
 }

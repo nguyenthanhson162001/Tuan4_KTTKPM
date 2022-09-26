@@ -28,7 +28,6 @@ import net.guides.springboot2.springboot2jpacrudexample.repository.PlaneReposito
 public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
-
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
@@ -41,12 +40,11 @@ public class EmployeeController {
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 		return ResponseEntity.ok().body(employee);
 	}
-
 	@PostMapping("/employees")
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
 		return employeeRepository.save(employee);
 	}
-
+	
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
 			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {

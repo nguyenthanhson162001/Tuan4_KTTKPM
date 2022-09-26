@@ -12,6 +12,7 @@ import net.guides.springboot2.springboot2jpacrudexample.model.Plane;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long>{
 	
-	@Query(value="SELECT * FROM maybay ",nativeQuery = true)
-	List<Plane> findFlightGoToDalat();
+	@Query(value="SELECT * FROM chuyenbay where ga_den = ?1 ",nativeQuery = true)
+	List<Flight> findFlightGoToArrivals(String gaGen);
 }
+
